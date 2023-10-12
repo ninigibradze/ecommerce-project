@@ -5,9 +5,11 @@ import SideNav from './SideNav';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LanguageIcon from '@mui/icons-material/Language';
 import CloseIcon from '@mui/icons-material/Close';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import getCategories from '../../services/getCategories';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { LiveSearch } from './LiveSearch';
 
 
 const sideItemsOne = [
@@ -52,7 +54,7 @@ const sideItemsFour = [
 const SecondHeader = () => {
     const ref = useRef();
     const [showSideNav, setShowSideNav] = useState(false);
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState([])
 
     const push = useNavigate();
     const user = useSelector((state) => state.user);
@@ -106,7 +108,31 @@ const SecondHeader = () => {
                             <AccountCircleIcon /> 
                             <p className='font-bold text-xl font-titleFont tracking-wide'>Hello {user.isLoggedIn ? ` , ${user.unique_name}` : ''}</p>
                         </div>
+
+                        {/* live search for screens smaller than md */}     
+                        <LiveSearch closeNav={setShowSideNav} />                        
+
                         <div className='h-full overflow-scroll pb-9'>
+
+                            {/* categori search from server - small screens */}
+                            <div className='lgl:hidden py-3 border-b-[2px] border-b-gray-300 z-10'>
+                                <h3 className='text-lg font-semibold font-titleFont mb-1 px-6'>Recommended for you</h3>
+                                    <ul className='text-sm'>
+                                    {
+                                        categories.map((item)=> (
+                                            <li key={item.id} 
+                                            className='flex items-center justify-between px-6 py-2 cursor-pointer hover:bg-zinc-100'
+                                            onClick={() => {
+                                                handleChangeCategory(item.id)
+                                                setShowSideNav(false)
+                                                }}>
+                                                {item.name} <span><KeyboardArrowRightIcon /></span>
+                                            </li>                
+                                        ))
+                                    }
+                                    </ul>
+                            </div>
+
                             <SideNav title='Trending' sideItems={sideItemsOne} />
                             <SideNav title='Digital Content & Devices' sideItems={sideItemsTwo}/>
                             <SideNav  title='Shop By Department' sideItems={sideItemsThree}/>

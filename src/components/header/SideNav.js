@@ -10,7 +10,8 @@ const SideNav = ({title, sideItems}) => {
             <ul className='text-sm'>
                 {                   
                     sideItems.map(item => (
-                        <li key={item.id} className='flex items-center justify-between px-6 py-2 cursor-pointer hover:bg-zinc-100'>
+                        <li key={item.id} 
+                        className='flex items-center justify-between px-6 py-2 cursor-pointer hover:bg-zinc-100'>
                           {item.title}<span><KeyboardArrowRightIcon /></span>
                         </li>
                     ))
