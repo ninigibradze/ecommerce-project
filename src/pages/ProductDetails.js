@@ -290,12 +290,13 @@ const ProductDetails = () => {
         {modalPicture && (
         <div  className='top-layer-div w-full fixed top-0 left-0 bg-amazon_blue bg-opacity-50 h-screen'>
           <div className='relative w-full h-full'>
-            <div ref={ref} className='absolute top-[20%] left-[5%] border border-gray-600 rounded-xl
-            bg-white w-[90%] h-[60%] z-5 flex flex-col justify-center items-center'>
-              <p className='w-[90%] text-2xl text-gray-600 flex justify-start items-center pl-10
+            <div ref={ref} className='absolute top-[10%] md:top-[20%] left-[5%] border border-gray-600 rounded-xl
+            bg-white w-[90%] h-[80%] md:h-[60%] z-5 flex flex-col lg:justify-center items-center overflow-scroll overflow-x-hidden'>
+              <p className='w-[90%] text-2xl text-gray-600 flex md:justify-start items-center pl-10
               border-b-gray-400 border-b mb-[10px]'>Images</p>
-              <div className='w-full flex flex-row justify-evenly'>
-                <img src={bigImage.length > 0 ? bigImage : images[0]} alt='productImage' className='h-[350px] w-[350px]' />
+              <div className='w-full flex flex-col md:flex-row gap-2 items-center md:justify-evenly'>
+                <img src={bigImage.length > 0 ? bigImage : images[0]} alt='productImage' 
+                className='h-[250px] md:h-[350px] w-[250px] md:w-[350px]' />
                 <div className='flex flex-col w-[50%]'>
                   <p className='text-xl text-gray-400 py-5'>{name}</p>
                   <div className='flex flex-row gap-2 justify-start flex-wrap w-[80%] pt-[10%] '>
@@ -312,7 +313,7 @@ const ProductDetails = () => {
                 </div>
               </div>
             </div>
-            <span className='absolute top-[20%] right-[5%] rounded-tr-xl h-15 w-15 cursor-pointer flex
+            <span className='absolute top-[10%] md:top-[20%] right-[5%] rounded-tr-xl h-15 w-15 cursor-pointer flex
             items-center justify-center text-white bg-gray-600 bg-opacity-50'
             onClick={() => setModalPicture(false)}>
                             <CloseIcon fontSize='large' />
