@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ecommerce-project/static/css/main.17b0c1c6.css",
-    "main.js": "/ecommerce-project/static/js/main.c4ab829c.js",
+    "main.css": "/ecommerce-project/static/css/main.c47afcf1.css",
+    "main.js": "/ecommerce-project/static/js/main.712525c0.js",
     "static/media/bannerImgTwo.jpg": "/ecommerce-project/static/media/bannerImgTwo.62f27a533260733b04a4.jpg",
     "static/media/bannerImgThree.jpg": "/ecommerce-project/static/media/bannerImgThree.a954b8d5325ea62939a6.jpg",
     "static/media/bannerImgOne.jpg": "/ecommerce-project/static/media/bannerImgOne.065ed919f8ec1253e08f.jpg",
@@ -14,11 +14,11 @@
     "static/media/emptyCart.svg": "/ecommerce-project/static/media/emptyCart.7d3158e69144600ce397f0ef50471f00.svg",
     "static/media/amazonLogoDark.svg": "/ecommerce-project/static/media/amazonLogoDark.e02ff81ea007a246d82ee89d0d9322aa.svg",
     "index.html": "/ecommerce-project/index.html",
-    "main.17b0c1c6.css.map": "/ecommerce-project/static/css/main.17b0c1c6.css.map",
-    "main.c4ab829c.js.map": "/ecommerce-project/static/js/main.c4ab829c.js.map"
+    "main.c47afcf1.css.map": "/ecommerce-project/static/css/main.c47afcf1.css.map",
+    "main.712525c0.js.map": "/ecommerce-project/static/js/main.712525c0.js.map"
   },
   "entrypoints": [
-    "static/css/main.17b0c1c6.css",
-    "static/js/main.c4ab829c.js"
+    "static/css/main.c47afcf1.css",
+    "static/js/main.712525c0.js"
   ]
 }
