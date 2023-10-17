@@ -27,7 +27,7 @@ export const ProtectedRoute = () => {
 	}, []);
 
 	if (!isLoggedIn) {
-		return <Navigate to="/signin" replace />;
+		return <Navigate to="/ecommerce-project/signin" replace />;
 	}
 
 	return <Outlet />;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import noItemImg from './../assets/noitem.png';
 import getProductsById from '../services/getProductsById';
-import { Pagination, Skeleton } from '@mui/material';
+import { CircularProgress, Pagination } from '@mui/material';
 
 const priceArr = [
     // {
@@ -124,11 +124,8 @@ const CategorySearch = () => {
 
     if(products.isLoading) {
         return (
-            <div className='flex justify-between  w-full h-screen py-3'>
-                <Skeleton variant="rounded" style={{ width: '13%', height: '50%' }}  />
-                <Skeleton variant="rounded" style={{ width: '25%', height: '50%' }} />
-                <Skeleton variant="rounded" style={{ width: '25%', height: '50%' }} />
-                <Skeleton variant="rounded" style={{ width: '25%', height: '50%' }} />      
+            <div className='flex justify-center items-center w-full h-screen'>
+                <CircularProgress />
             </div>)
     }
 

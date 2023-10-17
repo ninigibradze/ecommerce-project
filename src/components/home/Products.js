@@ -6,7 +6,7 @@ import getProducts from '../../services/getProducts';
 import { ProductsBoxContainer } from './ProductsBoxContainer';
 import getDemandedProducts from '../../services/getDemandedProducts';
 import getLatestProducts from '../../services/getLatestProducts';
-import { Skeleton } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 
 const defaultdata={
     isLoading: true,
@@ -45,11 +45,8 @@ const Products = () => {
 
     if( products.isLoading || demandedProducts.isLoading || latestProducts.isLoading) {
         return (
-            <div className='flex justify-evenly w-full h-screen p-3'>
-                <Skeleton variant="rounded" animation="wave" style={{ width: '20%', height: '60%' }}  />
-                <Skeleton variant="rounded" animation="wave" style={{ width: '20%', height: '60%' }} />
-                <Skeleton variant="rounded" animation="wave" style={{ width: '20%', height: '60%' }} /> 
-                <Skeleton variant="rounded" animation="wave" style={{ width: '20%', height: '30%' }} />      
+            <div className='flex justify-center items-center w-full h-screen'>
+                <CircularProgress />
             </div>)
     }
 

@@ -109,8 +109,8 @@ const Banner = () => {
               style={{
                 position: "absolute",
                 top: "55%",
-                left: "50%",
-                right: "50%",
+                left: "38%",
+                // right: "50%",
                 transform: "translate(-50% -50%)",
                 width: "120px",
               }}

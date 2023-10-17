@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Rating, Skeleton } from '@mui/material';
+import { CircularProgress, Rating } from '@mui/material';
 import getLatestProducts from '../services/getLatestProducts';
 import getProductById from '../services/getProductById';
 import { handleAddProduct } from '../redux/userSlice';
@@ -125,10 +125,8 @@ const ProductDetails = () => {
 	};
   
   if(selectedProduct.isLoading || latestProducts.isLoading) {
-    return (<div className='flex flex-col lg:flex-row justify-evenly w-full h-screen p-3'>
-      <Skeleton variant="rounded" animation="wave" style={{ width: '30%', height: '70%' }}  />
-      <Skeleton variant="rounded" animation="wave" style={{ width: '40%', height: '80%' }} />
-      <Skeleton variant="rounded" animation="wave" style={{ width: '15%', height: '50%' }} />      
+    return (<div className='flex justify-center items-center w-full h-screen'>
+      <CircularProgress />
     </div>)
   }
 
@@ -147,14 +145,15 @@ const ProductDetails = () => {
   return (
     <div className='bg-white'>
       <div className='flex flex-col gap-3 lg:flex-row justify-normal lg:justify-between py-[40px] mx-auto w-[95%]  relative'>
+        
         {/* product images  */}
         <div className='flex flex-col mx-auto lg:mx-0 lg:justify-start lg:items-start w-[70%] lg:w-[30%]'>    
-          <div className='mx-auto lg:mx-0'>
-            <img src={bigImage || images[0]} className='h-[350px] w-[350px] cursor-pointer' 
+          <div className='mx-auto lg:mx-0 h-[300px] w-[300px]'>
+            <img src={bigImage || images[0]} className='mx-auto h-[250px] w-[250px] cursor-pointer' 
             onClick={() => setModalPicture(true)} alt='productimage'/>
           </div>
           <div className='flex flex-col gap-2 justify-center items-center py-[10px]'>
-            <p className='text-gray-500 pt-[15px]'>Roll over image to zoom in</p>
+            <p className='text-gray-500 pt-[5px]'>Roll over image to zoom in</p>
             <div className='flex flex-row gap-2 justify-evenly'>
 
               {images.slice(0, 3).map((img, index) => (
