@@ -3,7 +3,7 @@ import logo from './../../assets/amazonLogoDark.svg'
 import Select from 'react-select';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { getReduxCartItems } from '../../redux/userSlice';
+import { getReduxCartItems, handleRemoveOptimisticProduct, removeCartItem } from '../../redux/userSlice';
 
 
 const countryOptions = [
@@ -152,6 +152,12 @@ const handleCheckInput = (e) => {
     && code && expDate) {
     setSuccessMessage(prev => ({...prev, address:true}))
     alert('Your purchase was successful');
+
+    Object.keys(data).forEach((productId) => {
+      dispatch(handleRemoveOptimisticProduct(productId));
+      dispatch(removeCartItem(productId));
+    })
+    
     navigate('/ecommerce-project');
   }
 }
@@ -397,8 +403,8 @@ const totalprice= Object.values(data).reduce((accumulator, product) => {
             <div className='w-[70%] xl:w-[50%]'>
               <p className='font-bold text-sm'>Exp. date</p>              
                 <input 
-                name='code'
-                value={formState.code}
+                name='expDate'
+                value={formState.expDate}
                 onChange={handleInputChange}
                 className='w-[30%] py-1 border border-zinc-400
                 px-2 text-base rounded-sm outline-none focus-within:border-gray-400
@@ -416,8 +422,8 @@ const totalprice= Object.values(data).reduce((accumulator, product) => {
            <div className='w-[70%] xl:w-[50%]'>
               <p className='font-bold text-sm'>Security code(CVC/CVV)</p>              
                 <input 
-                name='expDate'
-                value={formState.expDate}
+                name='code'
+                value={formState.code}
                 onChange={handleInputChange}  className='w-[30%] py-1 border border-zinc-400
                 px-2 text-base rounded-sm outline-none focus-within:border-gray-400
                 focus-within:shadow-md duration-100 noArrowInput' />   

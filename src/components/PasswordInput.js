@@ -14,7 +14,7 @@ const PasswordInput = ({passValue, handleChange}) => {
               className='w-[238px] lowercase py-1 border border-zinc-400
               px-2 text-base rounded-tl-sm rounded-bl-sm outline-none focus-within:border-[#e77600]
               focus-within:shadow-amazonInput duration-100' />
-        <div className='border border-zinc-400 h-full px-1 cursor-pointer rounded-tr-sm rounded-br-sm'
+        <div className='flex items-center justify-center border border-zinc-400 py-1 lg:py-0 lg:h-full px-1 cursor-pointer rounded-tr-sm rounded-br-sm'
         onClick={() => setPassVisible(!passVisible)}>
             <RemoveRedEyeOutlinedIcon />
         </div>        

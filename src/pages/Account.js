@@ -44,7 +44,7 @@ const Account = () => {
 
   return (
     <form className='w-full'>
-      <div className='w-[550px] bg-gray-100 py-10 px-4 my-5 flex flex-col gap-4 justify-center items-center mx-auto shadow-textShadow'>
+      <div className=' w-[100%] lg:w-[550px] bg-gray-100 py-10 px-4 my-5 flex flex-col gap-4 justify-center items-center mx-auto shadow-textShadow'>
         <p className='text-3xl font-bold text-black'>Your Account</p>
 
         {/* change name */}

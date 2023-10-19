@@ -16,8 +16,14 @@ const Cart = () => {
   const handleRemoveFromCart = (id) => {
     dispatch(handleRemoveOptimisticProduct(id));
     dispatch(removeCartItem(id));
-    // dispatch(getReduxCartItems());
 	};
+
+  const removeAllItems = () => {
+    Object.keys(data).forEach((productId) => {
+      dispatch(handleRemoveOptimisticProduct(productId));
+      dispatch(removeCartItem(productId));
+    })
+  }
 
   useEffect(() => {
     dispatch(getReduxCartItems());
@@ -52,7 +58,7 @@ const Cart = () => {
                 border-b-gray-400 py-3'>
                   <h2 className='text-2xl font-medium'>Shopping cart</h2>
                   <p className='text-sm font-normal text-blue-600 cursor-pointer hover:underline'
-                  // onClick={() => dispatch(resetCart())}
+                  onClick={() => removeAllItems()}
                   >Remove all items</p>
                 </div>
 
