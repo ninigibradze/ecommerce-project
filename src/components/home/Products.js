@@ -7,6 +7,7 @@ import { ProductsBoxContainer } from './ProductsBoxContainer';
 import getDemandedProducts from '../../services/getDemandedProducts';
 import getLatestProducts from '../../services/getLatestProducts';
 import { CircularProgress } from '@mui/material';
+import getOffers from '../../services/getOffers';
 
 const defaultdata={
     isLoading: true,
@@ -19,6 +20,7 @@ const Products = () => {
     const [products, setProducts] = useState(defaultdata);
     const [demandedProducts, setDemandedProducts] = useState(defaultdata);
     const [latestProducts, setLatestProducts] = useState(defaultdata);
+    const [offers, setOffers] = useState(defaultdata)
 
 
     useEffect(() => {
@@ -39,17 +41,23 @@ const Products = () => {
                 isLoading: false,
                 data: res,
             })
-        })           
+        })     
+        getOffers().then((res) => {
+            setOffers({
+                isLoading: false,
+                data: res,
+            })
+        })        
+           
     }, [])
 
 
-    if( products.isLoading || demandedProducts.isLoading || latestProducts.isLoading) {
+    if( products.isLoading || demandedProducts.isLoading || latestProducts.isLoading || offers.isLoading) {
         return (
-            <div className='flex justify-center items-center w-full h-screen'>
+            <div className='flex justify-center items-center w-full h-screen'> 
                 <CircularProgress />
             </div>)
     }
-
    
   return ( 
     <div>
@@ -73,9 +81,9 @@ const Products = () => {
 
 
         {/* PRODUCTS SLIDE */}
-        <ProductsCarouselOne data={latestProducts.data} title='Inspired by your browsing history'  />
-        <ProductsCarouselOne data={products.data} title='Top Deals'  />
-        {/* <ProductsCarouselOne data={demandedProducts.data} pricetag={false} title='Top Deals' /> */}
+        <ProductsCarouselOne data={latestProducts.data} title='Inspired by your browsing history' pricetag={false}  />
+        {/* <ProductsCarouselOne data={offers.data} title='Offers' pricetag={true}  /> */}
+        <ProductsCarouselOne data={demandedProducts.data} pricetag={false} title='Top Deals' />
 
         {/* CATEGORIES */}
         <div className='grid grid-cols lgl:grid-cols-2 2xl:grid-cols-4 gap-5 xl:gap-10  px-4 pb-[23px] 

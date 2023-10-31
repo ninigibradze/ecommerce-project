@@ -5,7 +5,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useNavigate } from 'react-router-dom';
 
 
-export const ProductsCarouselOne = ({data, title}) => {
+export const ProductsCarouselOne = ({data, title, pricetag}) => {
   const push = useNavigate();
 
     const PrevArrow = ({ onClick }) => {
@@ -88,19 +88,31 @@ export const ProductsCarouselOne = ({data, title}) => {
                 <p className='text-sm text-blue-600 hover:text-red-500 hover:underline cursor-pointer flex justify-end'>See more</p>
             </div>
             <div>
-                <Slider {...settings}>
+                <Slider {...settings}>                    
                     {data.map((item, index) => (
                             <div key={index}>
                                 <img className='ml-[15px] w-[140px] h-[140px] flex justify-center items-center cursor-pointer' 
-                                src={item.images[0]} alt='ProductSlideImage'
-                                onClick={() => handleNavigateProduct(item.id)} />                               
+                                src={title==='Offers' ? item.image : item.images[0]} alt='ProductSlideImage'
+                                onClick={() => handleNavigateProduct(item.id)} />   
+                                {pricetag && (
+                                  <div className='flex flex-row gap-2 justify-center items-center'> 
+                                    <p className='line-through'>{item.oldPrice}</p>
+                                    <p className='text-red-800 font-semibold'>{item.newPrice}</p>
+                                  </div>
+                                )}
                             </div>
                         ))}  
                     {data.map((item, index) => (
                             <div key={index}>
                                 <img className='ml-[15px] w-[140px] h-[140px] flex justify-center items-center cursor-pointer' 
-                                src={item.images[0]} alt='ProductSlideImage'
-                                onClick={() => handleNavigateProduct(item.id)} />                                
+                                src={title==='Offers' ? item.image : item.images[0]} alt='ProductSlideImage'
+                                onClick={() => handleNavigateProduct(item.id)} />    
+                                {pricetag && (
+                                  <div className='flex flex-row gap-2 justify-center items-center'> 
+                                    <p className='line-through'>{item.oldPrice}</p>
+                                    <p className='text-red-800 font-semibold'>{item.newPrice}</p>
+                                  </div>
+                                )}                            
                             </div>
                     ))}                                       
                 </Slider>

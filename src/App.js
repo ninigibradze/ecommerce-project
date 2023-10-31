@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Outlet, Route, RouterProvider, ScrollRestoration, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import { Navigate, Outlet, Route, RouterProvider, ScrollRestoration, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Header from './components/header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
@@ -56,7 +56,7 @@ function App() {
   const router = createBrowserRouter(createRoutesFromElements(
     <Route>
       <Route path='/ecommerce-project' element={<Layout />}>
-        <Route index element={<Home />} ></Route>
+        <Route index element={<Home />} />
         <Route path='/ecommerce-project/product/:id' element={<ProductDetails />}></Route>
         <Route path='/ecommerce-project/category/:id' element={<CategorySearch />}></Route>
         <Route path="/ecommerce-project/about" element={<About />}></Route>
@@ -70,7 +70,7 @@ function App() {
       <Route path="/ecommerce-project/registration" element={<Registration />}></Route>
       <Route element={<ProtectedRoute />}>
         <Route path="/ecommerce-project/checkout" element={<Checkout />}></Route>     
-      </Route>       
+      </Route>      
     </Route>    
   ))
 
