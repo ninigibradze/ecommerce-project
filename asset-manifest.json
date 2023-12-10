@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ecommerce-project/static/css/main.0408363e.css",
-    "main.js": "/ecommerce-project/static/js/main.4016fc3f.js",
+    "main.js": "/ecommerce-project/static/js/main.37d4ab83.js",
     "static/media/bannerImgTwo.jpg": "/ecommerce-project/static/media/bannerImgTwo.62f27a533260733b04a4.jpg",
     "static/media/bannerImgThree.jpg": "/ecommerce-project/static/media/bannerImgThree.a954b8d5325ea62939a6.jpg",
     "static/media/bannerImgOne.jpg": "/ecommerce-project/static/media/bannerImgOne.065ed919f8ec1253e08f.jpg",
@@ -15,10 +15,10 @@
     "static/media/amazonLogoDark.svg": "/ecommerce-project/static/media/amazonLogoDark.e02ff81ea007a246d82ee89d0d9322aa.svg",
     "index.html": "/ecommerce-project/index.html",
     "main.0408363e.css.map": "/ecommerce-project/static/css/main.0408363e.css.map",
-    "main.4016fc3f.js.map": "/ecommerce-project/static/js/main.4016fc3f.js.map"
+    "main.37d4ab83.js.map": "/ecommerce-project/static/js/main.37d4ab83.js.map"
   },
   "entrypoints": [
     "static/css/main.0408363e.css",
-    "static/js/main.4016fc3f.js"
+    "static/js/main.37d4ab83.js"
   ]
 }
